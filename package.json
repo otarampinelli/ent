@@ -13,6 +13,7 @@
     "lint:fix": "eslint . --fix",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "nuxt generate && playwright test",
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.16.0",
     "@nuxt/test-utils": "^4.1.0",
+    "@playwright/test": "^1.62.1",
     "@vue/test-utils": "^2.4.11",
     "electron": "^43.2.0",
     "electron-builder": "^26.15.3",

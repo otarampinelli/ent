@@ -4,6 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['nuxt-electron', '@nuxt/eslint', '@nuxt/ui'],
   ssr: false,
+  app: {
+    head: {
+      title: 'Ent'
+    }
+  },
   css: ['~/assets/css/main.css'],
   electron: {
     disableDefaultOptions: true,
