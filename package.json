@@ -14,7 +14,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "nuxt generate && playwright test",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,cjs,vue}": "eslint --fix"
   },
   "dependencies": {
     "@nuxt/ui": "^4.10.0",
@@ -49,6 +53,8 @@
     "electron-builder": "^26.15.3",
     "eslint": "^10.8.0",
     "happy-dom": "^20.11.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
     "nuxt-electron": "^0.7.0",
     "typescript": "^6.0.3",
     "vite-plugin-electron": "^1.1.0",
