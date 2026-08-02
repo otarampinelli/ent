@@ -15,7 +15,9 @@
     "test:watch": "vitest",
     "test:e2e": "nuxt generate && playwright test",
     "typecheck": "nuxt typecheck",
-    "prepare": "husky"
+    "prepare": "husky",
+    "db:migrate": "node electron/db/cli.ts migrate",
+    "db:drop": "node electron/db/cli.ts drop"
   },
   "lint-staged": {
     "*.{js,ts,mjs,cjs,vue}": "eslint --fix"
