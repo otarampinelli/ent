@@ -2,7 +2,8 @@ import type { BrowserWindow as BrowserWindowType } from 'electron'
 import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
 import path from 'node:path'
-import { closeDb, getDb } from './db/index.js'
+import { closeDb } from './db/index.js'
+import { registerIpcHandler } from './ipc/index.js'
 
 const require = createRequire(import.meta.url)
 const { app, BrowserWindow } = require('electron')
@@ -30,7 +31,7 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
-  getDb()
+  registerIpcHandler()
   createWindow()
 })
 
