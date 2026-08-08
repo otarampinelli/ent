@@ -74,8 +74,8 @@ export const migrations: Migration[] = [
         output        TEXT,
         run_at        INTEGER NOT NULL
       );
-    `
-  }
+    `,
+  },
 ]
 
 export function runMigrations(database: DatabaseSync, pending: Migration[] = migrations) {
@@ -97,7 +97,8 @@ export function runMigrations(database: DatabaseSync, pending: Migration[] = mig
       database.exec(migration.sql)
       database.exec(`INSERT INTO schema_version (version) VALUES (${migration.version})`)
       database.exec('COMMIT')
-    } catch (err) {
+    }
+    catch (err) {
       database.exec('ROLLBACK')
       throw err
     }

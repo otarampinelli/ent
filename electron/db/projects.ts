@@ -9,12 +9,12 @@ export function insertProject(input: AddProjectInput): Project {
     name: input.name,
     repoPath: input.repoPath,
     defaultBase: input.defaultBase ?? 'main',
-    createdAt: Date.now()
+    createdAt: Date.now(),
   }
 
   db.prepare(
     `INSERT INTO projects (id, name, repo_path, default_base, created_at)
-     VALUES (?, ?, ?, ?, ?)`
+     VALUES (?, ?, ?, ?, ?)`,
   ).run(project.id, project.name, project.repoPath, project.defaultBase, project.createdAt)
 
   return project

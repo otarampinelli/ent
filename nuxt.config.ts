@@ -1,20 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
   modules: ['nuxt-electron', '@nuxt/eslint', '@nuxt/ui'],
   ssr: false,
+  devtools: { enabled: true },
   app: {
     head: {
-      title: 'Ent'
-    }
+      title: 'Ent',
+    },
   },
   css: ['~/assets/css/main.css'],
+  compatibilityDate: '2025-07-15',
   electron: {
     disableDefaultOptions: true,
     build: [
       {
-        entry: 'electron/main.ts'
+        entry: 'electron/main.ts',
       },
       {
         // electron/preload.cts is CommonJS (see electron/tsconfig.preload.json):
@@ -26,12 +26,17 @@ export default defineNuxtConfig({
               input: 'electron/preload.cts',
               output: {
                 format: 'cjs',
-                entryFileNames: 'preload.cjs'
-              }
-            }
-          }
-        }
-      }
-    ]
-  }
+                entryFileNames: 'preload.cjs',
+              },
+            },
+          },
+        },
+      },
+    ],
+  },
+  eslint: {
+    config: {
+      stylistic: true,
+    },
+  },
 })

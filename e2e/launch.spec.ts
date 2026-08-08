@@ -8,7 +8,7 @@ test('launches the app window', async () => {
 
   const app = await electron.launch({
     args: [path.join(import.meta.dirname, '../dist-electron/main.js')],
-    env
+    env,
   })
 
   const window = await app.firstWindow()

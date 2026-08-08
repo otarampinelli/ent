@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
 import path from 'node:path'
 import { closeDb } from './db/index.js'
-import { registerIpcHandler } from './ipc/index.js'
+import { registerIpcHandler } from './handlers/index.js'
 
 const require = createRequire(import.meta.url)
 const { app, BrowserWindow } = require('electron')
@@ -19,13 +19,14 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
       sandbox: true,
-      contextIsolation: true
-    }
+      contextIsolation: true,
+    },
   })
 
   if (process.env.VITE_DEV_SERVER_URL) {
     win?.loadURL(process.env.VITE_DEV_SERVER_URL)
-  } else {
+  }
+  else {
     win?.loadFile(path.join(__dirname, '../.output/public/index.html'))
   }
 }
